@@ -14,35 +14,19 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var movieTableView: UITableView!
     
     var movies: [[String: Any]] = []
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.dataSource = self
         
         // refresh control
-        let refreshControl = UIRefreshControl()
+        refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         // add refresh control to table view
         movieTableView.insertSubview(refreshControl, at: 0)
         
-        // network request snippet
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                let movies = dataDictionary["results"] as! [[String: Any]]
-                self.movies = movies
-                self.movieTableView.reloadData()
-            }
-        }
-        task.resume()
-
+        fetchMovies()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +55,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     // Updates the tableView with the new data
     // Hides the RefreshControl
     @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        fetchMovies()
+    }
+    
+    func fetchMovies() {
         // URL request
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -88,9 +76,18 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 // Reload the tableView now that there is new data
                 self.movieTableView.reloadData()
                 // Tell the refreshControl to stop spinning
-                refreshControl.endRefreshing()
+                self.refreshControl.endRefreshing()
             }
         }
         task.resume()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let indexPath = movieTableView.indexPath(for: cell) {
+            let movie = movies[indexPath.row]
+            let destinationViewController = segue.destination as! DetailViewController
+            destinationViewController.movie = movie
+        }
     }
 }
