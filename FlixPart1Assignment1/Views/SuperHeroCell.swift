@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PosterCell: UICollectionViewCell {
+class SuperHeroCell: UICollectionViewCell {
 
     @IBOutlet weak var posterView: UIImageView!
     

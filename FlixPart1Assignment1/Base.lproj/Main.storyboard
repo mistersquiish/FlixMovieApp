@@ -149,6 +149,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="nax-f6-RMQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zFc-lz-Gib">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -199,7 +200,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterCell" id="5YN-ue-MO6" customClass="PosterCell" customModule="FlixPart1Assignment1" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SuperHeroCell" id="5YN-ue-MO6" customClass="SuperHeroCell" customModule="FlixPart1Assignment1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="144" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -214,7 +215,7 @@
                                         </view>
                                         <size key="customSize" width="144" height="220"/>
                                         <connections>
-                                            <outlet property="posterView" destination="JvY-6D-91J" id="PGq-ZX-hz1"/>
+                                            <outlet property="posterView" destination="JvY-6D-91J" id="Nes-CS-3GY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
