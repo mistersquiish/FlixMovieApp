@@ -15,38 +15,47 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
     var filtered: [[String: Any]] = []
     var searchActive : Bool = false
     let searchController = UISearchController(searchResultsController: nil)
-    // scrollView variable
+    // scrollView variables
     var isMoreDataLoading = false
     var superHeroPageCount = 2
+    // infinite scroll loading variables
+    var loadingMoreView: InfiniteScrollView?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // collection view layout configuration
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        // search bar configuration
-        self.searchController.searchResultsUpdater = self
-        self.searchController.delegate = self
-        self.searchController.searchBar.delegate = self
-        
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = true
-        self.searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for Superhero Movies"
-        searchController.searchBar.sizeToFit()
-        
-        searchController.searchBar.becomeFirstResponder()
-        
-        self.navigationItem.titleView = searchController.searchBar
-        
-        // layout configuration
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let cellsPerLine: CGFloat = 2
         let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
         let width = collectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        
+        // search bar configuration
+        self.searchController.searchResultsUpdater = self
+        self.searchController.delegate = self
+        self.searchController.searchBar.delegate = self
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for Superhero Movies"
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.becomeFirstResponder()
+        self.navigationItem.titleView = searchController.searchBar
+        
+        // Infinite Scroll loading indicator configuration
+        let frame = CGRect(x: 0, y: collectionView.contentSize.height, width: collectionView.bounds.size.width, height: InfiniteScrollView.defaultHeight)
+        loadingMoreView = InfiniteScrollView(frame: frame)
+        loadingMoreView!.isHidden = true
+        collectionView.addSubview(loadingMoreView!)
+        var insets = collectionView.contentInset
+        insets.bottom += InfiniteScrollView.defaultHeight
+        collectionView.contentInset = insets
+        
         fetchSuperheroMovies()
     }
 
@@ -120,6 +129,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         searchController.searchBar.resignFirstResponder()
     }
     
+    //MARK: Scroll View
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
             // Calculate the position of one screen length before the bottom of the results
@@ -130,12 +140,18 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
             if(scrollView.contentOffset.y > scrollOffsetThreshold && collectionView.isDragging) {
                 isMoreDataLoading = true
                 
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRect(x: 0, y: collectionView.contentSize.height, width: collectionView.bounds.size.width, height: InfiniteScrollView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                
                 // ... Code to load more results ...
                 loadMoreSuperHeroMovies()
             }
         }
     }
     
+    // network requests to Movie Database API
     func loadMoreSuperHeroMovies() {
         
         // ... Create the NSURLRequest (myRequest) which cycles through the entire superhero genre ...
@@ -150,17 +166,25 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
                 print(error)
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                let moviesAdd = dataDictionary["results"] as! [[String: Any]]
-                // ... Use the new data to update the data source ...
-                for i in 0...(moviesAdd.count - 1) {
-                    self.movies.append(moviesAdd[i])
+                // testForNil will test to see if the "results" array is empty. Only important when we hit the end page of loading more superhero movies (page 61+)
+                var testForNil = dataDictionary["results"] as? [String]
+                if testForNil?.count != 0 {
+                    let moviesAdd = dataDictionary["results"] as! [[String: Any]]
+                    // ... Use the new data to update the data source ...
+                    for i in 0...(moviesAdd.count - 1) {
+                        self.movies.append(moviesAdd[i])
+                    }
+                    self.superHeroPageCount += 1
+                    
+                    // Stop the loading indicator
+                    self.loadingMoreView!.stopAnimating()
+                    // Reload the tableView now that there is new data
+                    self.collectionView.reloadData()
+
                 }
-                self.superHeroPageCount += 1
-                self.isMoreDataLoading = false
-                // Reload the tableView now that there is new data
-                self.collectionView.reloadData()
             }
+            // Update Flag
+            self.isMoreDataLoading = false
         }
         task.resume()
     }
@@ -193,5 +217,15 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
             }
         }
         task.resume()
+    }
+    
+    // prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! SuperHeroCell
+        if let indexPath = collectionView.indexPath(for: cell) {
+            let movie = movies[indexPath.row]
+            let destinationViewController = segue.destination as! DetailViewController
+            destinationViewController.movie = movie
+        }
     }
 }
