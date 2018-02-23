@@ -2,7 +2,7 @@
 
 **Flix Part 3** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **1.5** hours spent in total
+Time spent: **3.5** hours spent in total
 
 ## User Stories
 
@@ -21,6 +21,7 @@ The following **additional** user stories are implemented:
 
 - [x] Added UIAlertController when a network connection cannot be established (stretch story for Assignment 1)
 - [x] Added UISearchBar to the SuperHero Collection View Controller
+- [x] Added Infinite Scroll for the Superhero Collection View Controller
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 

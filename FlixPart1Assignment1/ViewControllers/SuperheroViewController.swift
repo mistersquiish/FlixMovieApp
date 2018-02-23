@@ -8,13 +8,16 @@
 
 import UIKit
 
-class SuperheroViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+class SuperheroViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating, UIScrollViewDelegate {
 
     var movies: [[String: Any]] = []
     // searchbar variables
     var filtered: [[String: Any]] = []
     var searchActive : Bool = false
     let searchController = UISearchController(searchResultsController: nil)
+    // scrollView variable
+    var isMoreDataLoading = false
+    var superHeroPageCount = 2
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -115,6 +118,51 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         
         searchController.searchBar.resignFirstResponder()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = collectionView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - collectionView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && collectionView.isDragging) {
+                isMoreDataLoading = true
+                
+                // ... Code to load more results ...
+                loadMoreSuperHeroMovies()
+            }
+        }
+    }
+    
+    func loadMoreSuperHeroMovies() {
+        
+        // ... Create the NSURLRequest (myRequest) which cycles through the entire superhero genre ...
+        let url = URL(string: "https://api.themoviedb.org/3/movie/284054/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=\(superHeroPageCount)")
+        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        // Configure session so that completion handler is executed on main UI thread
+        let session = URLSession(configuration: URLSessionConfiguration.default, delegate:nil, delegateQueue:OperationQueue.main)
+        let task : URLSessionDataTask = session.dataTask(with: request) { (data, response, error)
+            in
+            // this will run when the network request returns
+            if let error = error {
+                print(error)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                let moviesAdd = dataDictionary["results"] as! [[String: Any]]
+                // ... Use the new data to update the data source ...
+                for i in 0...(moviesAdd.count - 1) {
+                    self.movies.append(moviesAdd[i])
+                }
+                self.superHeroPageCount += 1
+                self.isMoreDataLoading = false
+                // Reload the tableView now that there is new data
+                self.collectionView.reloadData()
+            }
+        }
+        task.resume()
     }
     
     func fetchSuperheroMovies() {
