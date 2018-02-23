@@ -2,7 +2,7 @@
 
 **Flix Part 3** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **5** hours spent in total
+Time spent: **6.5** hours spent in total
 
 ## User Stories
 
