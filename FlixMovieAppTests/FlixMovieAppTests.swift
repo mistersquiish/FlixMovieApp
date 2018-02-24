@@ -1,15 +1,14 @@
 //
-//  FlixPart1Assignment1Tests.swift
-//  FlixPart1Assignment1Tests
+//  FlixMovieAppTests.swift
+//  FlixMovieAppTests
 //
-//  Created by Henry Vuong on 2/11/18.
+//  Created by Henry Vuong on 2/24/18.
 //  Copyright © 2018 Henry Vuong. All rights reserved.
 //
 
 import XCTest
-@testable import FlixPart1Assignment1
 
-class FlixPart1Assignment1Tests: XCTestCase {
+class FlixMovieAppTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

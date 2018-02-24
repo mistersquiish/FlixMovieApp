@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_FlixPart1Assignment1TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_FlixPart1Assignment1TestsVersionString[];
+FOUNDATION_EXPORT double Pods_FlixMovieAppUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_FlixMovieAppUITestsVersionString[];
 
