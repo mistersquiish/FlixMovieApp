@@ -67,9 +67,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searchActive {
             return filtered.count
-        }
-        else
-        {
+        } else {
             return movies.count    //return number of rows in section
         }
     }
@@ -88,7 +86,19 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         return cell
     }
-    
+    /*
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Compute the dimension of a cell for an NxN layout with space S between
+        // cells.  Take the collection view's width, subtract (N-1)*S points for
+        // the spaces between the cells, and then divide by N to find the final
+        // dimension for the cell's width and height.
+        
+        let cellsAcross: CGFloat = 3
+        let spaceBetweenCells: CGFloat = 1
+        let dim = (collectionView.bounds.width - (cellsAcross - 1) * spaceBetweenCells) / cellsAcross
+        return CGSize(width: dim, height: 220)
+    }
+    */
     //MARK: Search Bar
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
@@ -113,7 +123,6 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         searchActive = true
         collectionView.reloadData()
     }
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
@@ -167,8 +176,8 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // testForNil will test to see if the "results" array is empty. Only important when we hit the end page of loading more superhero movies (page 61+)
-                var testForNil = dataDictionary["results"] as? [String]
-                if testForNil?.count != 0 {
+                var testForCount = dataDictionary["results"] as? [String]
+                if testForCount?.count != 0 {
                     let moviesAdd = dataDictionary["results"] as! [[String: Any]]
                     // ... Use the new data to update the data source ...
                     for i in 0...(moviesAdd.count - 1) {

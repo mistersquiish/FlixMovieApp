@@ -2,15 +2,15 @@
 
 **Flix Part 3** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **6.5** hours spent in total
+Time spent: **11** hours spent in total
 
 ## User Stories
 
 The following **required** user stories are complete:
 
 - The following screens use AutoLayout to adapt to various orientations and screen sizes
-- [ ] Movie feed view (+3pt)
-- [ ] Detail view (+2pt)
+- [x] Movie feed view (+3pt)
+- [x] Detail view (+2pt)
 
 The following **stretch** user stories are implemented:
 
@@ -27,7 +27,8 @@ The following **additional** user stories are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. I think the logic behind the Infinite scroll is extremely interesting, and I had a lot of fun working on that part
-2.
+2. I spent about 2.5 hours trying to update my file names from FlixPart1Assignment1 (which I thought was a crappy name) to FlixMovieApp. I think we should've been told if we would be using the same repository again.
+3. You also have to create exception error handling when the API gives you a null value for the background image (Ex. Avengers: Infinite Wars)
 
 ## Video Walkthrough
 
