@@ -23,6 +23,7 @@ The following **additional** user stories are implemented:
 - [x] Added UIAlertController when a network connection cannot be established (stretch story for Assignment 1)
 - [x] Added UISearchBar to the SuperHero Collection View Controller
 - [x] Added Infinite Scroll for the Superhero Collection View Controller with handling error for no network connection and end of page
+- [x] Added Trailer View Controller that shows the movie trailer. If not movie trailer than it links to YouTube (will fix in futre to an UIAlertController
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
