@@ -2,7 +2,7 @@
 
 **Flix Part 3** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **11** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -23,6 +23,7 @@ The following **additional** user stories are implemented:
 - [x] Added UIAlertController when a network connection cannot be established (stretch story for Assignment 1)
 - [x] Added UISearchBar to the SuperHero Collection View Controller
 - [x] Added Infinite Scroll for the Superhero Collection View Controller with handling error for no network connection and end of page
+- [x] Added UIButton that shows the user a movie trailer for the movie. If no movie trailer, then Youtube.com is presented (will change later to an UIAlertController)
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -34,7 +35,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/T6vw47A.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
