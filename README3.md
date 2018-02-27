@@ -37,6 +37,9 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/T6vw47A.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+Here's a walkthrough of the other features I implemented. The long pauses in the video is me turning off the wifi.
+https://i.imgur.com/b5gRSjo.gif
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
