@@ -11,7 +11,7 @@ import WebKit
 
 class TrailerViewController: UIViewController {
 
-    var trailerURL: URL!
+    var trailerUrl: URL!
     
     @IBOutlet weak var trailerWebView: WKWebView!
     
@@ -25,7 +25,7 @@ class TrailerViewController: UIViewController {
         
 
         // Place the URL in a URL Request.
-        let request = URLRequest(url: trailerURL!)
+        let request = URLRequest(url: trailerUrl!)
         // Load Request into WebView.
         trailerWebView.load(request)
     }

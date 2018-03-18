@@ -13,7 +13,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var movieTableView: UITableView!
     
-    var movies: [[String: Any]] = []
+    var movies: [Movie] = []
     var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
@@ -39,14 +39,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        let movie = movies[indexPath.row]
-        let title = movie["title"] as! String
-        let overview = movie["overview"] as! String
-        cell.titleLabel.text = title
-        cell.overviewLabel.text = overview
-        let moviePosterStr = movie["poster_path"] as! String
-        let moviePosterURL = URL(string: "https://image.tmdb.org/t/p/w500" + moviePosterStr)!
-        cell.imageLabel.af_setImage(withURL: moviePosterURL)
+        cell.movie = movies[indexPath.row]
         
         return cell
     }
@@ -59,13 +52,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     }
     
     func fetchMovies() {
-        // URL request
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        // Configure session so that completion handler is executed on main UI thread
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            // This will run when the network request returns
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
             if let error = error {
                 // present an alertController if no network is established
                 let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline", preferredStyle: .alert)
@@ -74,10 +61,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 }
                 alertController.addAction(tryAgainAction)
                 self.present(alertController, animated: true)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                let movies = dataDictionary["results"] as! [[String: Any]]
+            } else if let movies = movies {
                 self.movies = movies
                 // Reload the tableView now that there is new data
                 self.movieTableView.reloadData()
@@ -85,7 +69,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 self.refreshControl.endRefreshing()
             }
         }
-        task.resume()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

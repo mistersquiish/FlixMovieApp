@@ -9,7 +9,20 @@
 import UIKit
 
 class SuperHeroCell: UICollectionViewCell {
+    
+    var movie: Movie! {
+        willSet {
+            if newValue != nil {
+                posterView.af_setImage(withURL: newValue.posterUrl!)
+            }
+        }
+    }
 
     @IBOutlet weak var posterView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
     
 }
