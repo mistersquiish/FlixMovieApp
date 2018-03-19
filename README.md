@@ -125,6 +125,10 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/T6vw47A.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+There was not enough time to showcase the additional features, but the link below showcases those features:
+
+https://i.imgur.com/b5gRSjo.gif
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
