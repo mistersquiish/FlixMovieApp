@@ -11,6 +11,8 @@ import UIKit
 class SuperheroViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating, UIScrollViewDelegate {
 
     var movies: [Movie] = []
+    var goldColor: UIColor = UIColor(red: 0.87, green: 0.76, blue: 0.33, alpha: 1.0)
+    var grayColor: UIColor = UIColor(red: 0.09, green: 0.10, blue: 0.11, alpha: 1.0)
     // searchbar variables
     var filtered: [Movie] = []
     var searchActive : Bool = false
@@ -41,7 +43,15 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.dimsBackgroundDuringPresentation = true
         self.searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for Superhero Movies"
+        var searchTextField: UITextField? = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        if searchTextField!.responds(to: #selector(getter: UITextField.attributedPlaceholder)) {
+            let attributeDict = [NSAttributedStringKey.foregroundColor: goldColor]
+            searchTextField!.attributedPlaceholder = NSAttributedString(string: "Search for Superhero Movies", attributes: attributeDict)
+            searchTextField!.backgroundColor = grayColor
+            searchTextField!.textColor = goldColor
+        }
+        searchController.searchBar.tintColor = goldColor
+        searchController.searchBar.backgroundColor = grayColor
         searchController.searchBar.sizeToFit()
         searchController.searchBar.becomeFirstResponder()
         self.navigationItem.titleView = searchController.searchBar
@@ -80,7 +90,6 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuperHeroCell", for: indexPath) as! SuperHeroCell
         cell.movie = movie
-        print(filtered)
         return cell
     }
     /*
@@ -160,7 +169,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
     // network requests to Movie Database API
     func loadMoreSuperheroMovies() {
         MovieApiManager().loadMoreSuperheroMovies { (movies: [Movie]?, error: Error?) in
-            if let error = error {
+            if error != nil {
                 // present an alertController if no network is established
                 let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline", preferredStyle: .alert)
                 let tryAgainAction = UIAlertAction(title: "Try Again", style: .default) { (action) in
@@ -184,7 +193,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func fetchSuperheroMovies() {
         MovieApiManager().superheroMovies { (movies: [Movie]?, error: Error?) in
-            if let error = error {
+            if error != nil {
                 // present an alertController if no network is established
                 let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline", preferredStyle: .alert)
                 let tryAgainAction = UIAlertAction(title: "Try Again", style: .default) { (action) in

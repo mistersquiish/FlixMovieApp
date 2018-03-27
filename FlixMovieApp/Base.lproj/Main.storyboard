@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NowPlayingViewController" customModule="FlixMovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,22 +20,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NfV-bo-cG7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NfV-bo-cG7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="200" id="vfX-S8-raJ" customClass="MovieCell" customModule="FlixMovieApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="175" id="vfX-S8-raJ" customClass="MovieCell" customModule="FlixMovieApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vfX-S8-raJ" id="Yaf-yh-ceB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="174.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TNP-ap-Gd5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="175"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="0rs-Zh-Sks"/>
+                                                        <constraint firstAttribute="height" constant="175" id="0rs-Zh-Sks"/>
                                                         <constraint firstAttribute="width" constant="120" id="gPG-1t-WdZ"/>
                                                     </constraints>
                                                 </imageView>
@@ -45,34 +45,23 @@
                                                         <constraint firstAttribute="height" constant="21" id="feI-ww-kUW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stv-i8-qQE">
-                                                    <rect key="frame" x="128" y="29" width="239" height="162.5"/>
-                                                    <string key="text">Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.34162483808290156" green="0.34162483808290156" blue="0.34162483808290156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="QoB-OJ-gq8" firstAttribute="leading" secondItem="TNP-ap-Gd5" secondAttribute="trailing" constant="8" id="07A-pW-Ftw"/>
                                                 <constraint firstItem="TNP-ap-Gd5" firstAttribute="leading" secondItem="Yaf-yh-ceB" secondAttribute="leading" id="0Dv-vi-itw"/>
-                                                <constraint firstAttribute="bottom" secondItem="TNP-ap-Gd5" secondAttribute="bottom" id="59W-H6-PiC"/>
                                                 <constraint firstItem="TNP-ap-Gd5" firstAttribute="top" secondItem="Yaf-yh-ceB" secondAttribute="top" id="83Y-ZZ-JM0"/>
                                                 <constraint firstItem="QoB-OJ-gq8" firstAttribute="top" secondItem="TNP-ap-Gd5" secondAttribute="top" id="8Qo-kz-bHZ"/>
                                                 <constraint firstItem="QoB-OJ-gq8" firstAttribute="top" secondItem="Yaf-yh-ceB" secondAttribute="top" id="DHH-cA-Hrb"/>
-                                                <constraint firstItem="Stv-i8-qQE" firstAttribute="top" secondItem="QoB-OJ-gq8" secondAttribute="bottom" constant="8" id="Hft-EW-Omw"/>
+                                                <constraint firstAttribute="bottom" secondItem="TNP-ap-Gd5" secondAttribute="bottom" id="G03-pm-NgB"/>
                                                 <constraint firstAttribute="trailing" secondItem="QoB-OJ-gq8" secondAttribute="trailing" constant="8" id="TFP-le-qhW"/>
-                                                <constraint firstItem="Stv-i8-qQE" firstAttribute="leading" secondItem="QoB-OJ-gq8" secondAttribute="leading" id="VOL-op-yIS"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Stv-i8-qQE" secondAttribute="bottom" constant="8" id="W7x-d8-MXz"/>
-                                                <constraint firstAttribute="trailing" secondItem="Stv-i8-qQE" secondAttribute="trailing" constant="8" id="yE9-xf-Hjl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <connections>
                                             <outlet property="imageLabel" destination="TNP-ap-Gd5" id="7kL-2p-PRo"/>
-                                            <outlet property="overviewLabel" destination="Stv-i8-qQE" id="tqC-ZR-2FF"/>
                                             <outlet property="titleLabel" destination="QoB-OJ-gq8" id="5nD-oj-hyi"/>
                                             <segue destination="aa3-p3-O2M" kind="show" id="HHG-sX-o3E"/>
                                         </connections>
@@ -83,7 +72,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies" id="YFG-Na-vEJ"/>
+                    <navigationItem key="navigationItem" title="Now Playing" id="YFG-Na-vEJ"/>
                     <connections>
                         <outlet property="movieTableView" destination="NfV-bo-cG7" id="9rZ-Fc-G6r"/>
                     </connections>
@@ -288,7 +277,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KMv-OB-9iW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7gk-Qt-l2P">
                                     <size key="itemSize" width="144" height="220"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>

@@ -64,7 +64,7 @@ class MovieApiManager {
             if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // testForNil will test to see if the "results" array is empty. Only important when we hit the end page of loading more superhero movies (page 61+)
-                var testForCount = dataDictionary["results"] as? [String]
+                let testForCount = dataDictionary["results"] as? [String]
                 if testForCount?.count != 0 {
                     let moviesAddDictionary = dataDictionary["results"] as! [[String: Any]]
                     // ... Use the new data to update the data source ...

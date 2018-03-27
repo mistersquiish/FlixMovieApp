@@ -13,15 +13,12 @@ class MovieCell: UITableViewCell {
         willSet {
             if newValue != nil {
                 titleLabel.text = newValue.title
-                overviewLabel.text = newValue.overview
                 imageLabel.af_setImage(withURL: newValue.posterUrl!)
             }
         }
     }
     
     @IBOutlet weak var imageLabel: UIImageView!
-    
-    @IBOutlet weak var overviewLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
     

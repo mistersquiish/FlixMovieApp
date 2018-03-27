@@ -53,7 +53,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     func fetchMovies() {
         MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
-            if let error = error {
+            if error != nil {
                 // present an alertController if no network is established
                 let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline", preferredStyle: .alert)
                 let tryAgainAction = UIAlertAction(title: "Try Again", style: .default) { (action) in

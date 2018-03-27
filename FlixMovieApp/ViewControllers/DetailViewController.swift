@@ -50,7 +50,7 @@ class DetailViewController: UIViewController {
     
     func fetchMovieTrailer() {
         MovieApiManager().movieTrailer(movie: self.movie) { (trailerUrl: URL?, error: Error?) in
-            if let error = error {
+            if error != nil {
                 
             } else if let trailerUrl = trailerUrl {
                 self.trailerUrl = trailerUrl
