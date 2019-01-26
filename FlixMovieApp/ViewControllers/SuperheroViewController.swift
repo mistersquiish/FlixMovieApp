@@ -11,8 +11,6 @@ import UIKit
 class SuperheroViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating, UIScrollViewDelegate {
 
     var movies: [Movie] = []
-    var goldColor: UIColor = UIColor(red: 0.87, green: 0.76, blue: 0.33, alpha: 1.0)
-    var grayColor: UIColor = UIColor(red: 0.09, green: 0.10, blue: 0.11, alpha: 1.0)
     // searchbar variables
     var filtered: [Movie] = []
     var searchActive : Bool = false
@@ -43,15 +41,15 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.dimsBackgroundDuringPresentation = true
         self.searchController.obscuresBackgroundDuringPresentation = false
-        var searchTextField: UITextField? = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        let searchTextField: UITextField? = searchController.searchBar.value(forKey: "searchField") as? UITextField
         if searchTextField!.responds(to: #selector(getter: UITextField.attributedPlaceholder)) {
-            let attributeDict = [NSAttributedStringKey.foregroundColor: goldColor]
+            let attributeDict = [NSAttributedStringKey.foregroundColor: ColorScheme.goldColor]
             searchTextField!.attributedPlaceholder = NSAttributedString(string: "Search for Superhero Movies", attributes: attributeDict)
-            searchTextField!.backgroundColor = grayColor
-            searchTextField!.textColor = goldColor
+            searchTextField!.backgroundColor = ColorScheme.grayColor
+            searchTextField!.textColor = ColorScheme.goldColor
         }
-        searchController.searchBar.tintColor = goldColor
-        searchController.searchBar.backgroundColor = grayColor
+        searchController.searchBar.tintColor = ColorScheme.goldColor
+        searchController.searchBar.backgroundColor = ColorScheme.grayColor
         searchController.searchBar.sizeToFit()
         searchController.searchBar.becomeFirstResponder()
         self.navigationItem.titleView = searchController.searchBar

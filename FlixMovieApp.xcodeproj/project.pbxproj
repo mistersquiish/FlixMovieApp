@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18F5989496C171F5F8525FED /* Pods_FlixMovieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D3844205E9CFF29445E43C /* Pods_FlixMovieAppUITests.framework */; };
+		2815F3E421FD0AAB00FCF8AC /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F3E321FD0AAB00FCF8AC /* ColorScheme.swift */; };
 		2824CDD720414A8C00BBCBC8 /* FlixMovieAppTests in Resources */ = {isa = PBXBuildFile; fileRef = 2824CDD520414A8700BBCBC8 /* FlixMovieAppTests */; };
 		28323D6B203A2619005EF2E9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28323D6A203A2619005EF2E9 /* DetailViewController.swift */; };
 		28323D6D203A2DAE005EF2E9 /* SuperHeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28323D6C203A2DAE005EF2E9 /* SuperHeroCell.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2815F3E321FD0AAB00FCF8AC /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		2824CDCB20414A7A00BBCBC8 /* FlixMovieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlixMovieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2824CDD520414A8700BBCBC8 /* FlixMovieAppTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FlixMovieAppTests; sourceTree = "<group>"; };
 		28323D6A203A2619005EF2E9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				285695F8205AF21500A569A0 /* Movie.swift */,
 				285695FA205C353000A569A0 /* MovieApiManager.swift */,
+				2815F3E321FD0AAB00FCF8AC /* ColorScheme.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				28AEC2A4203FFD6900CC1279 /* InfiniteScrollView.swift in Sources */,
 				28323D6D203A2DAE005EF2E9 /* SuperHeroCell.swift in Sources */,
 				28323D71203A2E41005EF2E9 /* SuperheroViewController.swift in Sources */,
+				2815F3E421FD0AAB00FCF8AC /* ColorScheme.swift in Sources */,
 				28BF74E42030FC3100885074 /* AppDelegate.swift in Sources */,
 				285695FB205C353000A569A0 /* MovieApiManager.swift in Sources */,
 				28C885A620329FA100DAFAFA /* MovieCell.swift in Sources */,

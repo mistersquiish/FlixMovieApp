@@ -15,9 +15,13 @@ class Movie {
     var posterUrl: URL?
     var releaseDate: String?
     var backdropUrl: URL?
+    var voteAverage: Double?
+    var voteCount: Int?
     
     init(dictionary: [String: Any]) {
         title = dictionary["title"] as? String ?? "No title"
+        voteAverage = dictionary["vote_average"] as? Double ?? 0.00
+        voteCount = dictionary["vote_count"] as? Int ?? 0
         if let id = dictionary["id"] {
             movieId = String(describing: id)
         }
