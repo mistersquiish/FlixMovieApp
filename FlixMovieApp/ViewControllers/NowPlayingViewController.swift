@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var movieTableView: UITableView!
     
@@ -19,6 +19,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.dataSource = self
+        movieTableView.delegate = self
         movieTableView.backgroundColor = ColorScheme.grayColor
         
         // refresh control
@@ -41,7 +42,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         cell.movie = movies[indexPath.row]
-        
         return cell
     }
     

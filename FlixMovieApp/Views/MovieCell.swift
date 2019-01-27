@@ -15,6 +15,12 @@ class MovieCell: UITableViewCell {
                 titleLabel.text = newValue.title
                 imageLabel.af_setImage(withURL: newValue.posterUrl!)
             }
+            self.imageLabel.layer.borderWidth = 1
+            self.imageLabel.layer.masksToBounds = false
+            self.imageLabel.layer.borderWidth = 0
+            self.imageLabel.layer.cornerRadius = 20
+            self.imageLabel.clipsToBounds = true
+            
             self.backgroundColor = ColorScheme.grayColor
             self.voteAverage.text = String(format:"%.2f", newValue.voteAverage!)
             

@@ -28,6 +28,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
         // collection view layout configuration
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.backgroundColor = ColorScheme.grayColor
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let cellsPerLine: CGFloat = 2
         let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
