@@ -13,7 +13,7 @@ class Movie {
     var movieId: String?
     var overview: String?
     var posterUrl: URL?
-    var releaseDate: String?
+    var releaseDate: Date?
     var backdropUrl: URL?
     var voteAverage: Double?
     var voteCount: Int?
@@ -30,7 +30,11 @@ class Movie {
         if let posterStr = dictionary["poster_path"] as? String {
             posterUrl = URL(string: "https://image.tmdb.org/t/p/w500" + posterStr)!
         }
-        releaseDate = dictionary["release_date"] as? String ?? "TBA"
+        
+        // convert string to date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        releaseDate = dateFormatter.date(from: dictionary["release_date"] as! String)
         
         if let backdropStr = dictionary["backdrop_path"] as? String {
             backdropUrl = URL(string: "https://image.tmdb.org/t/p/w500" + backdropStr)!

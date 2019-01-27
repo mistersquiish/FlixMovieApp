@@ -31,7 +31,9 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         if let movie = movie {
             movieLabel.text = movie.title
-            releaseDateLabel.text = movie.releaseDate
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd,yyyy"
+            releaseDateLabel.text = dateFormatter.string(from: movie.releaseDate!)
             overviewLabel.text = movie.overview
             posterImageView.af_setImage(withURL: movie.posterUrl!)
             backgroundImageView.af_setImage(withURL: movie.backdropUrl!)

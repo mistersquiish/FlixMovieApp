@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,29 +49,52 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="5.87" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A54-hb-2ex">
-                                                    <rect key="frame" x="128" y="34" width="50" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.87" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQ6-WE-nBs">
+                                                    <rect key="frame" x="128" y="34" width="41" height="28"/>
+                                                    <color key="backgroundColor" red="0.95952690972222221" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="41" id="1Rj-ah-xfA"/>
+                                                        <constraint firstAttribute="height" constant="28" id="Dpx-gg-Hql"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2134 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SQ-JG-kBa">
+                                                    <rect key="frame" x="177" y="38" width="191" height="16"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jan 28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoQ-tp-r1e">
+                                                    <rect key="frame" x="128" y="70" width="191" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="QoB-OJ-gq8" firstAttribute="leading" secondItem="TNP-ap-Gd5" secondAttribute="trailing" constant="8" id="07A-pW-Ftw"/>
                                                 <constraint firstItem="TNP-ap-Gd5" firstAttribute="leading" secondItem="Yaf-yh-ceB" secondAttribute="leading" id="0Dv-vi-itw"/>
+                                                <constraint firstItem="JQ6-WE-nBs" firstAttribute="top" secondItem="QoB-OJ-gq8" secondAttribute="bottom" constant="8" id="5Tv-wS-9y1"/>
                                                 <constraint firstItem="TNP-ap-Gd5" firstAttribute="top" secondItem="Yaf-yh-ceB" secondAttribute="top" id="83Y-ZZ-JM0"/>
                                                 <constraint firstItem="QoB-OJ-gq8" firstAttribute="top" secondItem="Yaf-yh-ceB" secondAttribute="top" constant="5" id="DHH-cA-Hrb"/>
+                                                <constraint firstItem="9SQ-JG-kBa" firstAttribute="top" secondItem="QoB-OJ-gq8" secondAttribute="bottom" constant="12" id="Fzd-dK-651"/>
                                                 <constraint firstAttribute="bottom" secondItem="TNP-ap-Gd5" secondAttribute="bottom" id="G03-pm-NgB"/>
                                                 <constraint firstAttribute="trailing" secondItem="QoB-OJ-gq8" secondAttribute="trailing" constant="8" id="TFP-le-qhW"/>
+                                                <constraint firstItem="JQ6-WE-nBs" firstAttribute="leading" secondItem="QoB-OJ-gq8" secondAttribute="leading" id="Vbu-bR-Hem"/>
+                                                <constraint firstItem="9SQ-JG-kBa" firstAttribute="trailing" secondItem="Yaf-yh-ceB" secondAttribute="trailingMargin" constant="8" id="anY-Cu-nn8"/>
+                                                <constraint firstItem="9SQ-JG-kBa" firstAttribute="leading" secondItem="JQ6-WE-nBs" secondAttribute="trailing" constant="8" id="mP9-U7-eJr"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="dateLabel" destination="qoQ-tp-r1e" id="g6J-q5-bfb"/>
                                             <outlet property="imageLabel" destination="TNP-ap-Gd5" id="7kL-2p-PRo"/>
                                             <outlet property="titleLabel" destination="QoB-OJ-gq8" id="5nD-oj-hyi"/>
-                                            <outlet property="voteAverage" destination="A54-hb-2ex" id="SXX-x1-F0g"/>
+                                            <outlet property="voteAverage" destination="JQ6-WE-nBs" id="VvQ-pL-Ywk"/>
+                                            <outlet property="voteCount" destination="9SQ-JG-kBa" id="6cu-yx-hxu"/>
                                             <segue destination="aa3-p3-O2M" kind="show" id="HHG-sX-o3E"/>
                                         </connections>
                                     </tableViewCell>

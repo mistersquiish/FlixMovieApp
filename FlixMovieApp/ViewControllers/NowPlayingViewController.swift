@@ -19,6 +19,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTableView.dataSource = self
+        movieTableView.backgroundColor = ColorScheme.grayColor
         
         // refresh control
         refreshControl = UIRefreshControl()

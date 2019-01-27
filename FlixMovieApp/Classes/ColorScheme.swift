@@ -11,5 +11,5 @@ import UIKit
 
 class ColorScheme {
     static let goldColor: UIColor = UIColor(red: 0.87, green: 0.76, blue: 0.33, alpha: 1.0)
-    static let grayColor = UIColor(red: 0.09, green: 0.10, blue: 0.11, alpha: 1.0)
+    static let grayColor: UIColor = UIColor(red: 0.09, green: 0.10, blue: 0.11, alpha: 1.0)
 }

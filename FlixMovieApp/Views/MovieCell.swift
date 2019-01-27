@@ -31,6 +31,19 @@ class MovieCell: UITableViewCell {
             default: break;
             }
             self.voteAverage.backgroundColor = ratingColor
+            self.voteAverage.layer.borderWidth = 1
+            self.voteAverage.layer.masksToBounds = false
+            self.voteAverage.layer.borderWidth = 0
+            self.voteAverage.layer.cornerRadius = 5
+            self.voteAverage.clipsToBounds = true
+            
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
+            self.voteCount.text = numberFormatter.string(from: NSNumber(value:newValue.voteCount!))! + " Reviews"
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            self.dateLabel.text = dateFormatter.string(from: newValue.releaseDate!)
         }
     }
     
@@ -38,8 +51,11 @@ class MovieCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var voteAverage: UITextField!
+    @IBOutlet weak var voteAverage: UILabel!
     
+    @IBOutlet weak var voteCount: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
