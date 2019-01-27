@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = ColorScheme.goldColor
         navigationBarAppearace.barTintColor = ColorScheme.grayColor
         navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor:ColorScheme.goldColor]
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.barTintColor = ColorScheme.grayColor
+        tabBarAppearance.tintColor = ColorScheme.goldColor
         
         return true
     }
