@@ -42,7 +42,7 @@ The following **additional** user stories are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](http://recordit.co/OaGjoEneyi)
+<img src="http://recordit.co/OaGjoEneyi" width=250><br>
 
 ## Notes
 
