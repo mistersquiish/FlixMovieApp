@@ -41,10 +41,12 @@ The following **additional** user stories are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+Now Playing            |  Superhero Movies
+:-------------------------:|:-------------------------:
+<img src="http://recordit.co/qvZkzL7oMu.gif" width=250>  |  <img src="http://recordit.co/MKr9UgtQNt.gif" width=250><br>
 
-<img src="http://recordit.co/qvZkzL7oMu.gif" width=250>
 
-<img src="http://recordit.co/MKr9UgtQNt.gif" width=250><br>
+
 
 
 ## Notes
