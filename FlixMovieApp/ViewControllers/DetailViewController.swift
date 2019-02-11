@@ -40,7 +40,7 @@ class DetailViewController: UIViewController {
     
     var movie: Movie!
     var trailerUrl = URL(string: "https://www.youtube.com/")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let movie = movie {
@@ -75,8 +75,13 @@ class DetailViewController: UIViewController {
         movieLabel.textColor = UIColor.white
         releaseDateLabel.textColor = UIColor.white
         overviewLabel.textColor = UIColor.white
-        overviewLabel.backgroundColor = ColorScheme.grayColor
+        overviewLabel.backgroundColor = ColorScheme.grayColor2
         overviewLabel.isEditable = false
+        
+        trailerUIView.backgroundColor = ColorScheme.grayColor2
+        castUIView.backgroundColor = ColorScheme.grayColor2
+        trailerWebView.backgroundColor = ColorScheme.grayColor2
+        trailerWebView.isOpaque = false
         
         posterImageView.layer.borderWidth = 1
         posterImageView.layer.masksToBounds = false
@@ -84,46 +89,75 @@ class DetailViewController: UIViewController {
         posterImageView.layer.cornerRadius = 20
         posterImageView.clipsToBounds = true
         
-        voteAverage.layer.borderWidth = 1
-        voteAverage.layer.masksToBounds = false
-        voteAverage.layer.borderWidth = 0
-        voteAverage.layer.cornerRadius = 5
-        voteAverage.clipsToBounds = true
-        
+        roundEdges(view: voteAverage)
+        roundEdges(view: overviewUIView)
+        roundEdges(view: trailerUIView)
+        roundEdges(view: castUIView)
+        roundEdges(view: trailerWebView)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func swipeLeftGesture(_ sender: Any) {
-        let numIncrement = (self.overviewUIView.frame.width + 8) * -1
-        UIView.animate(withDuration: 0.75,
-                       delay: 0,
-                       options: UIViewAnimationOptions.curveLinear,
-                       animations: {
-                        self.overviewUIView.frame = self.overviewUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
-                        self.trailerUIView.frame = self.trailerUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
-                        self.castUIView.frame = self.castUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
-                        print(self.trailerUIView.frame.maxX)
-        },
-                       completion: nil)
-        print(trailerUIView.frame.maxX)
+    @IBAction func swipeLeftGesture(_ sender: UISwipeGestureRecognizer) {
+        if castUIView.frame.minX - 16 != self.view.frame.minX  {
+            let numIncrement = (self.overviewUIView.frame.width + 8) * -1
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           options: UIViewAnimationOptions.curveLinear,
+                           animations: {
+                            self.overviewUIView.frame = self.overviewUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                            self.trailerUIView.frame = self.trailerUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                            self.castUIView.frame = self.castUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+            },
+                           completion: nil)
+        } else {
+            let translation = CGFloat(171.5) * -1
+            let originalCenterCast = castUIView.center
+            let originalCenterTrailer = trailerUIView.center
+            UIView.animate(withDuration:0.5, animations: {
+                self.trailerUIView.center = CGPoint(x: originalCenterTrailer.x + translation, y: originalCenterTrailer.y)
+                self.castUIView.center = CGPoint(x: originalCenterCast.x + translation, y: originalCenterCast.y)
+            })
+            
+            UIView.animate(withDuration:0.6, animations: {
+                self.castUIView.center = originalCenterCast
+                self.trailerUIView.center = originalCenterTrailer
+            })
+            
+        }
+        
     }
     
-    @IBAction func swipeRightGesture(_ sender: Any) {
-        print("asdf")
-        let numIncrement = (self.overviewUIView.frame.width + 8)
-        UIView.animate(withDuration: 0.75,
-                       delay: 0,
-                       options: UIViewAnimationOptions.curveLinear,
-                       animations: {
-                        self.overviewUIView.frame = self.overviewUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
-                        self.trailerUIView.frame = self.trailerUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
-                        self.castUIView.frame = self.castUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
-                        print(self.trailerUIView.frame.maxX)
-        },
-                       completion: nil)
+    @IBAction func swipeRightGesture(_ sender: UISwipeGestureRecognizer) {
+        if overviewUIView.frame.minX - 16 != self.view.frame.minX {
+            let numIncrement = (self.overviewUIView.frame.width + 8)
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           options: UIViewAnimationOptions.curveLinear,
+                           animations: {
+                            self.overviewUIView.frame = self.overviewUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                            self.trailerUIView.frame = self.trailerUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                            self.castUIView.frame = self.castUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+            },
+                           completion: nil)
+        } else {
+            let translation = CGFloat(171.5) * -1
+            let originalCenterOverview = overviewUIView.center
+            let originalCenterTrailer = trailerUIView.center
+            UIView.animate(withDuration:0.5, animations: {
+                self.trailerUIView.center = CGPoint(x: originalCenterTrailer.x + translation, y: originalCenterTrailer.y)
+                self.overviewUIView.center = CGPoint(x: originalCenterOverview.x + translation, y: originalCenterOverview.y)
+            })
+            
+            UIView.animate(withDuration:0.4, animations: {
+                self.overviewUIView.center = originalCenterOverview
+                self.trailerUIView.center = originalCenterTrailer
+            })
+            
+        }
+        
     }
     
     
@@ -136,5 +170,13 @@ class DetailViewController: UIViewController {
                 self.trailerWebView.load(URLRequest(url: self.trailerUrl!))
             }
         }
+    }
+    
+    func roundEdges(view: UIView) {
+        view.layer.borderWidth = 1
+        view.layer.masksToBounds = false
+        view.layer.borderWidth = 0
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
     }
 }
