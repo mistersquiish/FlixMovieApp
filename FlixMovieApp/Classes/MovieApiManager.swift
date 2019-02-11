@@ -108,7 +108,7 @@ class MovieApiManager {
                 let testForCount = dataDictionary["results"] as? [String]
                 if testForCount?.count != 0 {
                     let trailers = dataDictionary["results"] as! [[String: Any]]
-                    let trailerUrl = URL(string: "https://www.youtube.com/watch?v=\(trailers[0]["key"]!)")!
+                    let trailerUrl = URL(string: "https://www.youtube.com/embed/\(trailers[0]["key"]!)")!
                     completion(trailerUrl, error)
                 }
 

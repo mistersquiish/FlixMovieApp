@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
     
@@ -23,8 +24,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var voteAverage: UILabel!
     
     @IBOutlet weak var voteCount: UILabel!
+
+    @IBOutlet weak var trailerWebView: WKWebView!
     
-    @IBOutlet weak var trailerButtonUI: UIButton!
+    @IBOutlet weak var overviewUIView: UIView!
+    
+    @IBOutlet weak var trailerUIView: UIView!
+    
+    @IBOutlet weak var castUIView: UIView!
     
     
     @IBAction func trailerButton(_ sender: Any) {
@@ -83,22 +90,42 @@ class DetailViewController: UIViewController {
         voteAverage.layer.cornerRadius = 5
         voteAverage.clipsToBounds = true
         
-        trailerButtonUI.backgroundColor = ColorScheme.goldColor
-        trailerButtonUI.layer.borderWidth = 1
-        trailerButtonUI.layer.masksToBounds = false
-        trailerButtonUI.layer.borderWidth = 0
-        trailerButtonUI.layer.cornerRadius = 15
-        trailerButtonUI.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as! TrailerViewController
-        destinationViewController.trailerUrl = trailerUrl
+    @IBAction func swipeLeftGesture(_ sender: Any) {
+        let numIncrement = (self.overviewUIView.frame.width + 8) * -1
+        UIView.animate(withDuration: 0.75,
+                       delay: 0,
+                       options: UIViewAnimationOptions.curveLinear,
+                       animations: {
+                        self.overviewUIView.frame = self.overviewUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                        self.trailerUIView.frame = self.trailerUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                        self.castUIView.frame = self.castUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                        print(self.trailerUIView.frame.maxX)
+        },
+                       completion: nil)
+        print(trailerUIView.frame.maxX)
     }
+    
+    @IBAction func swipeRightGesture(_ sender: Any) {
+        print("asdf")
+        let numIncrement = (self.overviewUIView.frame.width + 8)
+        UIView.animate(withDuration: 0.75,
+                       delay: 0,
+                       options: UIViewAnimationOptions.curveLinear,
+                       animations: {
+                        self.overviewUIView.frame = self.overviewUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                        self.trailerUIView.frame = self.trailerUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                        self.castUIView.frame = self.castUIView.frame.offsetBy(dx: numIncrement, dy: 0.0);
+                        print(self.trailerUIView.frame.maxX)
+        },
+                       completion: nil)
+    }
+    
     
     func fetchMovieTrailer() {
         MovieApiManager().movieTrailer(movie: self.movie) { (trailerUrl: URL?, error: Error?) in
@@ -106,6 +133,7 @@ class DetailViewController: UIViewController {
                 
             } else if let trailerUrl = trailerUrl {
                 self.trailerUrl = trailerUrl
+                self.trailerWebView.load(URLRequest(url: self.trailerUrl!))
             }
         }
     }
