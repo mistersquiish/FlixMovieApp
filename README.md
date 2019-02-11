@@ -40,9 +40,9 @@ The following **additional** user stories are implemented:
 
 ## Video Walkthrough
 
-Now Playing            |  Superhero Movies
-:-------------------------:|:-------------------------:
-<img src="http://recordit.co/qvZkzL7oMu.gif" width=250>  |  <img src="http://recordit.co/MKr9UgtQNt.gif" width=250><br>
+Now Playing            |  Detail View  | Superhero Movies
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="http://recordit.co/f9t04v24na.gif" width=250>  |  <img src="http://recordit.co/SqV2erBh3N.gif" width=250>  | <img src="http://recordit.co/MKr9UgtQNt.gif" width=250><br>
 
 
 
