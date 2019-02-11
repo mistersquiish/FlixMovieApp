@@ -118,6 +118,24 @@ class MovieApiManager {
         }
         task.resume()
     }
+    
+    func cast(movie: Movie, completion: @escaping ([Cast]?, Error?) -> ()) {
+        let url = URL(string: "https://api.themoviedb.org/3/movie/\(movie.movieId!)/credits?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // This will run when the network request returns
+            if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let castDictionary = dataDictionary["cast"] as! [[String: Any]]
+                let casts = Cast.casts(dictionaries: castDictionary)
+                completion(casts, error)
+                
+            } else {
+                completion(nil, error)
+            }
+        }
+        task.resume()
+    }
 }
 
 

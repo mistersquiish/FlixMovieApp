@@ -184,10 +184,6 @@
                                     <constraint firstAttribute="bottom" secondItem="lAx-XC-Q28" secondAttribute="bottom" id="pbl-5d-F7a"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmK-S7-APf">
-                                <rect key="frame" x="718" y="395" width="343" height="215"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrC-Yq-NNf">
                                 <rect key="frame" x="367" y="395" width="343" height="215"/>
                                 <subviews>
@@ -206,6 +202,52 @@
                                     <constraint firstItem="Nea-g2-mRv" firstAttribute="leading" secondItem="JrC-Yq-NNf" secondAttribute="leading" constant="8" id="NpZ-DY-QRt"/>
                                     <constraint firstItem="Nea-g2-mRv" firstAttribute="top" secondItem="JrC-Yq-NNf" secondAttribute="top" constant="8" id="srF-4R-Yur"/>
                                     <constraint firstAttribute="trailing" secondItem="Nea-g2-mRv" secondAttribute="trailing" constant="8" id="zbQ-kR-qCp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmK-S7-APf">
+                                <rect key="frame" x="718" y="395" width="343" height="215"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bkk-mN-At6">
+                                        <rect key="frame" x="8" y="8" width="327" height="199"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SrC-l8-bbx">
+                                            <size key="itemSize" width="82" height="125"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CastCell" id="A83-D4-zCp" customClass="CastCell" customModule="FlixMovieApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="125"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="125"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_male" translatesAutoresizingMaskIntoConstraints="NO" id="Ml3-xu-GLa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="82" height="125"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="Ml3-xu-GLa" firstAttribute="leading" secondItem="A83-D4-zCp" secondAttribute="leading" id="Taf-eQ-I5i"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ml3-xu-GLa" secondAttribute="bottom" id="eJ8-ve-mtc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ml3-xu-GLa" secondAttribute="trailing" id="iN9-uG-nk5"/>
+                                                    <constraint firstItem="Ml3-xu-GLa" firstAttribute="top" secondItem="A83-D4-zCp" secondAttribute="top" id="uY3-8l-eLi"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="castImageView" destination="Ml3-xu-GLa" id="s0D-g7-meE"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bkk-mN-At6" secondAttribute="bottom" constant="8" id="VCu-fH-uWI"/>
+                                    <constraint firstAttribute="trailing" secondItem="bkk-mN-At6" secondAttribute="trailing" constant="8" id="Yqm-h4-h7C"/>
+                                    <constraint firstItem="bkk-mN-At6" firstAttribute="leading" secondItem="vmK-S7-APf" secondAttribute="leading" constant="8" id="emj-vk-VWp"/>
+                                    <constraint firstItem="bkk-mN-At6" firstAttribute="top" secondItem="vmK-S7-APf" secondAttribute="top" constant="8" id="xfJ-0x-R5o"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -251,6 +293,7 @@
                     <size key="freeformSize" width="1125" height="667"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="SF2-n2-7JC" id="9hk-Xr-aD7"/>
+                        <outlet property="castCollectionView" destination="bkk-mN-At6" id="CtE-Lw-0XW"/>
                         <outlet property="castUIView" destination="vmK-S7-APf" id="MFq-Ek-89U"/>
                         <outlet property="movieLabel" destination="Msu-Op-pMp" id="rdY-EZ-Xhq"/>
                         <outlet property="overviewLabel" destination="lAx-XC-Q28" id="A0A-m1-yrP"/>
@@ -417,8 +460,9 @@
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
+        <image name="user_male" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HHG-sX-o3E"/>
+        <segue reference="EeM-uc-v7o"/>
     </inferredMetricsTieBreakers>
 </document>

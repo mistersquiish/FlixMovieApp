@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     
@@ -33,6 +33,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var castUIView: UIView!
     
+    @IBOutlet weak var castCollectionView: UICollectionView!
     
     @IBAction func trailerButton(_ sender: Any) {
         performSegue(withIdentifier: "TrailerSegue", sender: nil)
@@ -40,9 +41,31 @@ class DetailViewController: UIViewController {
     
     var movie: Movie!
     var trailerUrl = URL(string: "https://www.youtube.com/")
-
+    var casts: [Cast] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // collection view layout configuration
+        castCollectionView.dataSource = self
+        castCollectionView.delegate = self
+        castCollectionView.backgroundColor = ColorScheme.grayColor
+        let layout = castCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let cellsPerLine: CGFloat = 5
+        let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
+        let width = castCollectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
+        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        castCollectionView.backgroundColor = ColorScheme.grayColor2
+        
+        // API cast request to fill collection view
+        MovieApiManager().cast(movie: movie) { (casts: [Cast]?, error: Error?) in
+            if error != nil {
+                
+            } else if let casts = casts {
+                self.casts = casts
+                self.castCollectionView.reloadData()
+            }
+        }
+        
         if let movie = movie {
             movieLabel.text = movie.title
             let dateFormatter = DateFormatter()
@@ -160,6 +183,17 @@ class DetailViewController: UIViewController {
         
     }
     
+    //MARK: Collection View
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return casts.count > 10 ? 10 : casts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cast = casts[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath) as! CastCell
+        cell.cast = cast
+        return cell
+    }
     
     func fetchMovieTrailer() {
         MovieApiManager().movieTrailer(movie: self.movie) { (trailerUrl: URL?, error: Error?) in
