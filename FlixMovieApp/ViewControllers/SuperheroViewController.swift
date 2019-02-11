@@ -212,7 +212,12 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! SuperHeroCell
         if let indexPath = collectionView.indexPath(for: cell) {
-            let movie = movies[indexPath.row]
+            var movie: Movie!
+            if searchActive {
+                movie = filtered[indexPath.row]
+            } else {
+                movie = movies[indexPath.row]
+            }
             let destinationViewController = segue.destination as! DetailViewController
             destinationViewController.movie = movie
         }
