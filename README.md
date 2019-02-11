@@ -42,9 +42,7 @@ The following **additional** user stories are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](https://github.com/mistersquiish/FlixMovieApp/blob/master/walkthrough.gif)
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+![Video Walkthrough](http://recordit.co/OaGjoEneyi)
 
 ## Notes
 
