@@ -80,8 +80,8 @@ class MovieApiManager {
         task.resume()
     }
     
-    func popularMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieApiManager.baseUrl + "popular?api_key=\(MovieApiManager.apiKey)")!
+    func topRated(completion: @escaping ([Movie]?, Error?) -> ()) {
+        let url = URL(string: MovieApiManager.baseUrl + "top_rated?api_key=\(MovieApiManager.apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns

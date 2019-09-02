@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>315311039369-phce6b6ghurkki2m3b77e3mhgl998t5l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.315311039369-phce6b6ghurkki2m3b77e3mhgl998t5l</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAmJtOVGH1qzM4H-0aTOX7aWYBNFwMSHyw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>315311039369</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>CodePath.FlixMovieApp</string>
+	<key>PROJECT_ID</key>
+	<string>movielemma</string>
+	<key>STORAGE_BUCKET</key>
+	<string>movielemma.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:315311039369:ios:a58e3c7dfbb6a28a</string>
+	<key>DATABASE_URL</key>
+	<string>https://movielemma.firebaseio.com</string>
+</dict>
+</plist>

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import WebKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.barTintColor = ColorScheme.grayColor
         tabBarAppearance.tintColor = ColorScheme.goldColor
+        let pageControl = UIPageControl.appearance()
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.pageIndicatorTintColor = .lightGray
+        FirebaseApp.configure()
         
         return true
     }

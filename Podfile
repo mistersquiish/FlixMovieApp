@@ -6,7 +6,10 @@ target 'FlixMovieApp' do
   use_frameworks!
 
   # Pods for FlixMovieApp
-  pod 'AlamofireImage', ' ~>3.1'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
+  pod 'AlamofireImage'
 
   target 'FlixMovieAppTests' do
     inherit! :search_paths
