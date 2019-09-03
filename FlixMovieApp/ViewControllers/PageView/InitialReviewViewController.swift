@@ -43,6 +43,9 @@ class InitialReviewViewController: UIViewController, didRate {
             var posterUrl = review.movie.posterUrl?.absoluteString
             posterUrl = String((posterUrl?.dropFirst(31))!)
             
+            var backdropUrl = review.movie.backdropUrl?.absoluteString
+            backdropUrl = String((backdropUrl?.dropFirst(31))!)
+            
             var ref: DocumentReference? = nil
             ref = db.collection("reviews").addDocument(data: [
                 "user_id": "\(currentUser.uid)",
@@ -53,7 +56,7 @@ class InitialReviewViewController: UIViewController, didRate {
                     "overview": review.movie.overview!,
                     "poster_path": posterUrl!,
                     "release_date": df.string(from: review.movie.releaseDate!),
-                    "backdrop_path": review.movie.backdropUrl!.absoluteString,
+                    "backdrop_path": backdropUrl!,
                     "vote_average": review.movie.voteAverage!,
                     "vote_count": review.movie.voteCount!
                 ],

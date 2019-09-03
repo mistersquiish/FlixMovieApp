@@ -332,7 +332,7 @@
         <!--Main-->
         <scene sceneID="UDl-D3-bmp">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Home" storyboardName="Main" id="J6a-VJ-3oI" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="NowPlayingView" storyboardName="Main" id="J6a-VJ-3oI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZ9-Jf-B8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1566" y="-237"/>

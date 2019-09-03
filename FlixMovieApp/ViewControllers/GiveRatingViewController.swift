@@ -41,6 +41,9 @@ class GiveRatingViewController: UIViewController {
             var posterUrl = movie.posterUrl?.absoluteString
             posterUrl = String((posterUrl?.dropFirst(31))!)
             
+            var backdropUrl = movie.backdropUrl?.absoluteString
+            backdropUrl = String((backdropUrl?.dropFirst(31))!)
+            
             var ref: DocumentReference? = nil
             ref = db.collection("reviews").addDocument(data: [
                 "user_id": "\(currentUser.uid)",
@@ -51,7 +54,7 @@ class GiveRatingViewController: UIViewController {
                     "overview": movie.overview!,
                     "poster_path": posterUrl!,
                     "release_date": df.string(from: movie.releaseDate!),
-                    "backdrop_path": movie.backdropUrl!.absoluteString,
+                    "backdrop_path": backdropUrl!,
                     "vote_average": movie.voteAverage!,
                     "vote_count": movie.voteCount!
                 ],

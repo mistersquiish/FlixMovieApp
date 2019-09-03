@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import FirebaseAuth
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -27,6 +28,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         // add refresh control to table view
         movieTableView.insertSubview(refreshControl, at: 0)
+        
+        // add signout
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(signOut))
         
         fetchMovies()
     }
@@ -50,6 +54,13 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
     // Hides the RefreshControl
     @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
         fetchMovies()
+    }
+    
+    @objc func signOut() {
+        try! Auth.auth().signOut()
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
+        self.present(vc, animated: true, completion: nil)
     }
     
     func fetchMovies() {

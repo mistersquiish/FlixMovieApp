@@ -17,6 +17,7 @@ class Movie {
     var backdropUrl: URL?
     var voteAverage: Double?
     var voteCount: Int?
+    var predictedRating: Double?
     
     init(dictionary: [String: Any]) {
         title = dictionary["title"] as? String ?? "No title"
@@ -39,6 +40,8 @@ class Movie {
         if let backdropStr = dictionary["backdrop_path"] as? String {
             backdropUrl = URL(string: "https://image.tmdb.org/t/p/w500" + backdropStr)!
         }
+        
+        predictedRating = dictionary["predicted_rating"] as? Double ?? 0.0
     }
     
     class func movies(dictionaries: [[String: Any]]) -> [Movie] {

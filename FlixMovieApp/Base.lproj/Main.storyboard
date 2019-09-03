@@ -436,7 +436,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="SUe-3C-Rxh">
             <objects>
-                <tabBarController storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" id="nax-f6-RMQ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NowPlayingView" automaticallyAdjustsScrollViewInsets="NO" id="nax-f6-RMQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zFc-lz-Gib">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

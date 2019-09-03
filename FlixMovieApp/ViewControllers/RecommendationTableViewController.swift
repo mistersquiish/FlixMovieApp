@@ -70,7 +70,7 @@ class RecommendationTableViewController: UITableViewController {
     }
     
     func fetchMovies() {
-        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+        MovieLemmaApiManager().recommendedMovies { (movies: [Movie]?, error: Error?) in
             if error != nil {
                 // present an alertController if no network is established
                 let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline", preferredStyle: .alert)

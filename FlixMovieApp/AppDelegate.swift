@@ -29,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControl.pageIndicatorTintColor = .lightGray
         FirebaseApp.configure()
         
+        if Auth.auth().currentUser != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let nowPlayingViewControllers = storyboard.instantiateViewController(withIdentifier: "NowPlayingView")
+            window?.rootViewController = nowPlayingViewControllers
+        }
+        
         return true
     }
 

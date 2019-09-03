@@ -22,10 +22,10 @@ class RecommendedCell: UITableViewCell {
             self.imageLabel.layer.cornerRadius = 20
             self.imageLabel.clipsToBounds = true
             
-            self.ratingPrediction.text = String(format:"%.2f", newValue.voteAverage!)
+            self.ratingPrediction.text = String(format:"%.2f", newValue.predictedRating!)
             
             var ratingColor = UIColor(red: 0.27, green: 0.62, blue: 0.27, alpha: 1);
-            switch(Int(newValue.voteAverage!)) {
+            switch(Int(newValue.predictedRating!)) {
             case 9..<10: ratingColor = UIColor(red: 0.223, green: 0.52, blue: 0.223, alpha: 1);
             case 8..<9: ratingColor = UIColor(red: 0.28, green: 0.52, blue: 0.223, alpha: 1);
             case 7..<8: ratingColor = UIColor(red: 0.35, green: 0.52, blue: 0.223, alpha: 1);
