@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Firebase
 
 class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -55,6 +56,9 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         let width = castCollectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         castCollectionView.backgroundColor = ColorScheme.grayColor2
+        
+        // add review button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(giveRating))
         
         // API cast request to fill collection view
         MovieApiManager().cast(movie: movie) { (casts: [Cast]?, error: Error?) in
@@ -206,11 +210,20 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
     }
     
+    @objc func giveRating() {
+        self.performSegue(withIdentifier: "GiveRatingSegue", sender: nil)
+    }
+    
     func roundEdges(view: UIView) {
         view.layer.borderWidth = 1
         view.layer.masksToBounds = false
         view.layer.borderWidth = 0
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as! GiveRatingViewController
+        destinationViewController.movie = movie
     }
 }

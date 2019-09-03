@@ -109,7 +109,7 @@
                         <outlet property="logoImageView" destination="WqV-kl-N89" id="Mgf-Eb-5oS"/>
                         <outlet property="passwordTextField" destination="Eoo-S3-w37" id="5w5-5S-uoi"/>
                         <outlet property="signupOutlet" destination="JuA-EB-vrv" id="CP1-0o-7lI"/>
-                        <segue destination="J6a-VJ-3oI" kind="presentation" identifier="HomeSegue" id="eFQ-Ey-3hh"/>
+                        <segue destination="J6a-VJ-3oI" kind="show" identifier="HomeSegue" id="eFQ-Ey-3hh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fz-KK-EYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,7 +356,7 @@
                                 </state>
                                 <connections>
                                     <action selector="continueButton:" destination="qcX-La-CA3" eventType="touchUpInside" id="Kdy-15-0sg"/>
-                                    <segue destination="J6a-VJ-3oI" kind="presentation" id="9IO-8x-i0l"/>
+                                    <segue destination="J6a-VJ-3oI" kind="show" id="9IO-8x-i0l"/>
                                 </connections>
                             </button>
                         </subviews>

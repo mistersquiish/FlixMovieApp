@@ -24,6 +24,7 @@
 		2835883D2317240B007C0C45 /* InitialReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2835883A2317240B007C0C45 /* InitialReviewViewController.swift */; };
 		2835883E2317240B007C0C45 /* InitialReviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2835883B2317240B007C0C45 /* InitialReviewPageViewController.swift */; };
 		2835883F2317240B007C0C45 /* InitialReviewDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2835883C2317240B007C0C45 /* InitialReviewDataViewController.swift */; };
+		283FFB58231EC8C30067E7BD /* GiveRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FFB57231EC8C30067E7BD /* GiveRatingViewController.swift */; };
 		285695F9205AF21500A569A0 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285695F8205AF21500A569A0 /* Movie.swift */; };
 		285695FB205C353000A569A0 /* MovieApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285695FA205C353000A569A0 /* MovieApiManager.swift */; };
 		2881FA68221132A2004C126F /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2881FA67221132A2004C126F /* Cast.swift */; };
@@ -75,6 +76,7 @@
 		2835883A2317240B007C0C45 /* InitialReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialReviewViewController.swift; sourceTree = "<group>"; };
 		2835883B2317240B007C0C45 /* InitialReviewPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialReviewPageViewController.swift; sourceTree = "<group>"; };
 		2835883C2317240B007C0C45 /* InitialReviewDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialReviewDataViewController.swift; sourceTree = "<group>"; };
+		283FFB57231EC8C30067E7BD /* GiveRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveRatingViewController.swift; sourceTree = "<group>"; };
 		285695F8205AF21500A569A0 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		285695FA205C353000A569A0 /* MovieApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiManager.swift; sourceTree = "<group>"; };
 		2881FA67221132A2004C126F /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				28323D6A203A2619005EF2E9 /* DetailViewController.swift */,
 				28323D70203A2E41005EF2E9 /* SuperheroViewController.swift */,
 				28292648231D993900D71060 /* RecommendationTableViewController.swift */,
+				283FFB57231EC8C30067E7BD /* GiveRatingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				28BF74E42030FC3100885074 /* AppDelegate.swift in Sources */,
 				28358835231722DC007C0C45 /* SignUpViewController.swift in Sources */,
 				28358831231722B7007C0C45 /* Review.swift in Sources */,
+				283FFB58231EC8C30067E7BD /* GiveRatingViewController.swift in Sources */,
 				285695FB205C353000A569A0 /* MovieApiManager.swift in Sources */,
 				2881FA68221132A2004C126F /* Cast.swift in Sources */,
 				28C885A620329FA100DAFAFA /* MovieCell.swift in Sources */,

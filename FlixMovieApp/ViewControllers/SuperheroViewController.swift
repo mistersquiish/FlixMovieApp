@@ -107,7 +107,6 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
     //MARK: Search Bar
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        self.dismiss(animated: true, completion: nil)
     }
     
     func updateSearchResults(for searchController: UISearchController)

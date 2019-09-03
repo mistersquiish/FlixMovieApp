@@ -12,7 +12,7 @@ class MovieApiManager {
     
     static let baseUrl = "https://api.themoviedb.org/3/movie/"
     static let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-    var superheroPageCount = 2
+    static var superheroPageCount = 2
     var session: URLSession
     
     init() {
@@ -57,7 +57,7 @@ class MovieApiManager {
     }
     
     func loadMoreSuperheroMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieApiManager.baseUrl + "284054/similar?api_key=\(MovieApiManager.apiKey)&language=en-US&page=\(superheroPageCount)")
+        let url = URL(string: MovieApiManager.baseUrl + "284054/similar?api_key=\(MovieApiManager.apiKey)&language=en-US&page=\(MovieApiManager.superheroPageCount)")
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns
@@ -68,7 +68,7 @@ class MovieApiManager {
                 if testForCount?.count != 0 {
                     let moviesAddDictionary = dataDictionary["results"] as! [[String: Any]]
                     // ... Use the new data to update the data source ...
-                    self.superheroPageCount += 1
+                    MovieApiManager.superheroPageCount += 1
                 
                     let movies = Movie.movies(dictionaries: moviesAddDictionary)
                     completion(movies, nil)
