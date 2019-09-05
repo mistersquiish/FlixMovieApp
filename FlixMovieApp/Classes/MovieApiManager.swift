@@ -10,7 +10,7 @@ import Foundation
 
 class MovieApiManager {
     
-    static let baseUrl = "https://api.themoviedb.org/3/movie/"
+    static let baseUrl = "https://api.themoviedb.org/3/"
     static let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
     static var superheroPageCount = 2
     var session: URLSession
@@ -21,7 +21,7 @@ class MovieApiManager {
     }
     
     func nowPlayingMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieApiManager.baseUrl + "now_playing?api_key=\(MovieApiManager.apiKey)")!
+        let url = URL(string: MovieApiManager.baseUrl + "movie/now_playing?api_key=\(MovieApiManager.apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns
@@ -39,7 +39,7 @@ class MovieApiManager {
     }
     
     func superheroMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieApiManager.baseUrl + "284054/similar?api_key=\(MovieApiManager.apiKey)")
+        let url = URL(string: MovieApiManager.baseUrl + "movie/284054/similar?api_key=\(MovieApiManager.apiKey)")
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns
@@ -57,7 +57,7 @@ class MovieApiManager {
     }
     
     func loadMoreSuperheroMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieApiManager.baseUrl + "284054/similar?api_key=\(MovieApiManager.apiKey)&language=en-US&page=\(MovieApiManager.superheroPageCount)")
+        let url = URL(string: MovieApiManager.baseUrl + "movie/284054/similar?api_key=\(MovieApiManager.apiKey)&language=en-US&page=\(MovieApiManager.superheroPageCount)")
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns
@@ -80,8 +80,26 @@ class MovieApiManager {
         task.resume()
     }
     
+    func searchMovies(searchString: String, completion: @escaping ([Movie]?, Error?) -> ()) {
+        let url = URL(string: MovieApiManager.baseUrl + "search/movie?api_key=\(MovieApiManager.apiKey)&query=\(searchString)")
+        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // This will run when the network request returns
+            if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
+                
+                let movies = Movie.movies(dictionaries: movieDictionaries)
+                completion(movies, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+        task.resume()
+    }
+    
     func topRated(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieApiManager.baseUrl + "top_rated?api_key=\(MovieApiManager.apiKey)")!
+        let url = URL(string: MovieApiManager.baseUrl + "movie/top_rated?api_key=\(MovieApiManager.apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns

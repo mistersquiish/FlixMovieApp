@@ -447,6 +447,7 @@
                         <segue destination="7Ij-mF-OKV" kind="relationship" relationship="viewControllers" id="Jgj-ri-RzS"/>
                         <segue destination="Dat-9q-f8t" kind="relationship" relationship="viewControllers" id="wuJ-8X-rmh"/>
                         <segue destination="pnJ-Vz-QZQ" kind="relationship" relationship="viewControllers" id="veD-W6-Xtd"/>
+                        <segue destination="VQC-v9-LvE" kind="relationship" relationship="viewControllers" id="7Gc-Ab-UTi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXZ-i0-7Oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -649,11 +650,11 @@
             </objects>
             <point key="canvasLocation" x="1092" y="805.54722638680664"/>
         </scene>
-        <!--Recommendations-->
+        <!--Recommended-->
         <scene sceneID="ifV-vR-aVK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pnJ-Vz-QZQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recommendations" selectedImage="projector_tabbar_item" id="k3b-kS-8Bo"/>
+                    <tabBarItem key="tabBarItem" title="Recommended" image="projector_tabbar_item" selectedImage="projector_tabbar_item" id="k3b-kS-8Bo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oxJ-ME-ZNo">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -668,6 +669,99 @@
             </objects>
             <point key="canvasLocation" x="-2106.4000000000001" y="769.56521739130437"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sHJ-JG-ifh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VQC-v9-LvE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Atr-Om-l8k"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6QD-qD-gFM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W3V-ot-m8h" kind="relationship" relationship="rootViewController" id="9ZQ-kJ-feC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jRO-rt-tMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="-895.50224887556226"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="LbI-AV-nvi">
+            <objects>
+                <collectionViewController id="W3V-ot-m8h" customClass="SearchViewController" customModule="FlixMovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="jUE-m7-UEe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Saa-ac-LPP">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SuperHeroCell" id="htI-Cs-73l" customClass="SuperHeroCell" customModule="FlixMovieApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="174" height="229"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="229"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P3x-zO-Zsq">
+                                            <rect key="frame" x="4" y="4" width="166" height="190"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.87" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIf-Rm-sdo">
+                                            <rect key="frame" x="8" y="197" width="41" height="28"/>
+                                            <color key="backgroundColor" red="0.95952690969999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="7wf-8v-0D2"/>
+                                                <constraint firstAttribute="width" constant="41" id="Tv6-dL-Glv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2134 Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIm-hw-a7L">
+                                            <rect key="frame" x="57" y="203" width="89" height="16"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                            <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lIf-Rm-sdo" secondAttribute="bottom" constant="4" id="8Ax-Cq-3T6"/>
+                                    <constraint firstItem="HIm-hw-a7L" firstAttribute="centerY" secondItem="lIf-Rm-sdo" secondAttribute="centerY" id="8Q3-jI-gkK"/>
+                                    <constraint firstItem="lIf-Rm-sdo" firstAttribute="top" secondItem="P3x-zO-Zsq" secondAttribute="bottom" constant="3" id="9AN-K3-cqu"/>
+                                    <constraint firstItem="P3x-zO-Zsq" firstAttribute="leading" secondItem="htI-Cs-73l" secondAttribute="leading" constant="4" id="E7p-SJ-CGi"/>
+                                    <constraint firstAttribute="trailing" secondItem="P3x-zO-Zsq" secondAttribute="trailing" constant="4" id="Pe6-xU-td3"/>
+                                    <constraint firstItem="lIf-Rm-sdo" firstAttribute="leading" secondItem="htI-Cs-73l" secondAttribute="leading" constant="8" id="Z2a-HK-Cgj"/>
+                                    <constraint firstItem="P3x-zO-Zsq" firstAttribute="top" secondItem="htI-Cs-73l" secondAttribute="top" constant="4" id="qpA-8B-PC2"/>
+                                    <constraint firstItem="HIm-hw-a7L" firstAttribute="leading" secondItem="lIf-Rm-sdo" secondAttribute="trailing" constant="8" id="uxh-AG-IvQ"/>
+                                </constraints>
+                                <size key="customSize" width="174" height="229"/>
+                                <connections>
+                                    <outlet property="posterView" destination="P3x-zO-Zsq" id="Lgc-SW-LTh"/>
+                                    <outlet property="voteAverage" destination="lIf-Rm-sdo" id="EJO-3H-UZZ"/>
+                                    <outlet property="voteCount" destination="HIm-hw-a7L" id="AkM-sM-dhj"/>
+                                    <segue destination="aa3-p3-O2M" kind="show" id="csS-Um-U0a"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="W3V-ot-m8h" id="bzd-HG-Ob8"/>
+                            <outlet property="delegate" destination="W3V-ot-m8h" id="l3l-aE-iyR"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="6sy-IV-6QI"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4G-Pm-gSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="-896"/>
+        </scene>
     </scenes>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
@@ -676,6 +770,6 @@
         <image name="user_male" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uei-pe-DfW"/>
+        <segue reference="csS-Um-U0a"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,9 +27,16 @@ class MovieLemmaApiManager {
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns
             if let data = data {
-                let movieDictionaries = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
-                let movies = Movie.movies(dictionaries: movieDictionaries)
-                completion(movies, nil)
+                if let movieDictionaries = try? JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]] {
+                    let movies = Movie.movies(dictionaries: movieDictionaries)
+                    completion(movies, nil)
+                } else {
+                    // i just created a random error to prevent crashing 
+                    let raiseError = NSError(domain: "", code: 2, userInfo: nil)
+                    completion(nil, raiseError)
+                }
+               
+                
             } else {
                 completion(nil, error)
             }
