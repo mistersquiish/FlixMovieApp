@@ -77,7 +77,11 @@ class RecommendationTableViewController: UITableViewController {
                 let tryAgainAction = UIAlertAction(title: "Try Again", style: .default) { (action) in
                     self.fetchMovies()
                 }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                }
+                alertController.addAction(cancelAction)
                 alertController.addAction(tryAgainAction)
+
                 self.present(alertController, animated: true)
             } else if let movies = movies {
                 self.movies = movies

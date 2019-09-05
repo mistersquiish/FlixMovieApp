@@ -20,6 +20,7 @@ class GiveRatingViewController: UIViewController {
     var db: Firestore!
     var currentUser: User!
     var movie: Movie!
+    var currenUserRating: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,8 @@ class GiveRatingViewController: UIViewController {
         imageView.af_setImage(withURL: movie.posterUrl!)
         currentUser = Auth.auth().currentUser
         db = Firestore.firestore()
+        
+        getCurrentUserRating()
     }
     
     @IBAction func ratingsButton(_ sender: UIButton) {
@@ -74,5 +77,23 @@ class GiveRatingViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    func getCurrentUserRating() {
+        db.collection("reviews").whereField("user_id", isEqualTo: currentUser.uid)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        if let movieData = document.data()["movie"] {
+                            let movie = Movie(dictionary: movieData as! [String : Any])
+                            if movie.movieId == self.movie.movieId {
+                                self.currenUserRating = document.data()["rating"] as? Double
+                                self.ratingLabel.text = String(Int(self.currenUserRating))
+                            }
+                        }
+                        
+                    }
+                }
+        }
+    }
 }

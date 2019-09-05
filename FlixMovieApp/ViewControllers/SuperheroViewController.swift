@@ -173,6 +173,9 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
                 let tryAgainAction = UIAlertAction(title: "Try Again", style: .default) { (action) in
                     self.fetchSuperheroMovies()
                 }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                }
+                alertController.addAction(cancelAction)
                 alertController.addAction(tryAgainAction)
                 self.present(alertController, animated: true)
             } else if let movies = movies {
@@ -197,6 +200,9 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
                 let tryAgainAction = UIAlertAction(title: "Try Again", style: .default) { (action) in
                     self.fetchSuperheroMovies()
                 }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                }
+                alertController.addAction(cancelAction)
                 alertController.addAction(tryAgainAction)
                 self.present(alertController, animated: true)
             } else if let movies = movies {

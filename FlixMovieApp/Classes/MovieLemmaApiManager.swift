@@ -11,8 +11,9 @@ import FirebaseAuth
 
 class MovieLemmaApiManager {
     
-    static let baseUrl = "https://faf4c0c9.ngrok.io/recommendation/"
+    static let baseUrl = "https://537c447d.ngrok.io/"
     static let currentUserId = Auth.auth().currentUser?.uid
+    static let recommendationRoute = "recommendation/"
     var session: URLSession
     
     init() {
@@ -21,13 +22,12 @@ class MovieLemmaApiManager {
     }
     
     func recommendedMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieLemmaApiManager.baseUrl + MovieLemmaApiManager.currentUserId!)!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let url = URL(string: MovieLemmaApiManager.baseUrl + MovieLemmaApiManager.recommendationRoute + MovieLemmaApiManager.currentUserId!)
+        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns
             if let data = data {
                 let movieDictionaries = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
-                
                 let movies = Movie.movies(dictionaries: movieDictionaries)
                 completion(movies, nil)
             } else {
