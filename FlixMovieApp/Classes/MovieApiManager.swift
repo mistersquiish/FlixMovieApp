@@ -81,7 +81,8 @@ class MovieApiManager {
     }
     
     func searchMovies(searchString: String, completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieApiManager.baseUrl + "search/movie?api_key=\(MovieApiManager.apiKey)&query=\(searchString)")
+        let searchStringNoSpaces = searchString.replacingOccurrences(of: " ", with: "%20")
+        let url = URL(string: MovieApiManager.baseUrl + "search/movie?api_key=\(MovieApiManager.apiKey)&query=\(searchStringNoSpaces)")
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns

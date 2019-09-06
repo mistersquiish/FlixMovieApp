@@ -13,12 +13,14 @@ class SuperHeroCell: UICollectionViewCell {
     var movie: Movie! {
         willSet {
             if newValue != nil {
-                posterView.af_setImage(withURL: newValue.posterUrl!)
-                posterView.layer.borderWidth = 1
-                posterView.layer.masksToBounds = false
-                posterView.layer.borderWidth = 0
-                posterView.layer.cornerRadius = 20
-                posterView.clipsToBounds = true
+                if newValue.posterUrl != nil {
+                    posterView.af_setImage(withURL: newValue.posterUrl!)
+                    posterView.layer.borderWidth = 1
+                    posterView.layer.masksToBounds = false
+                    posterView.layer.borderWidth = 0
+                    posterView.layer.cornerRadius = 20
+                    posterView.clipsToBounds = true
+                }
                 
                 self.voteAverage.text = String(format:"%.2f", newValue.voteAverage!)
                 var ratingColor = UIColor(red: 0.27, green: 0.62, blue: 0.27, alpha: 1);
