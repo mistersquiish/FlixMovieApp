@@ -9,11 +9,13 @@
 import UIKit
 import AlamofireImage
 import FirebaseFirestore
+import FirebaseAuth
 
 class RecommendationTableViewController: UITableViewController {
 
     var movies: [Movie] = []
     var db: Firestore!
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class RecommendationTableViewController: UITableViewController {
         // add refresh control to table view
         self.tableView.insertSubview(refreshControl!, at: 0)
         db = Firestore.firestore()
+        currentUser = Auth.auth().currentUser
         
         fetchMovies()
 //        // for uploading movies to database for use in onboarding screen

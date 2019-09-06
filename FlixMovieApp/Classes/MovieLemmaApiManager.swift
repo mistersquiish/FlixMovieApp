@@ -12,7 +12,6 @@ import FirebaseAuth
 class MovieLemmaApiManager {
     
     static let baseUrl = "https://movielemma.herokuapp.com/"
-    static let currentUserId = Auth.auth().currentUser?.uid
     static let recommendationRoute = "recommendation/"
     var session: URLSession
     
@@ -22,7 +21,7 @@ class MovieLemmaApiManager {
     }
     
     func recommendedMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
-        let url = URL(string: MovieLemmaApiManager.baseUrl + MovieLemmaApiManager.recommendationRoute + MovieLemmaApiManager.currentUserId!)
+        let url = URL(string: MovieLemmaApiManager.baseUrl + MovieLemmaApiManager.recommendationRoute + Auth.auth().currentUser!.uid)
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns

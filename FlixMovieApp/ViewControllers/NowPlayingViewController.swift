@@ -30,7 +30,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         movieTableView.insertSubview(refreshControl, at: 0)
         
         // add signout
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(signOut))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "sign out", style: .plain, target: self, action: #selector(signOut))
         
         fetchMovies()
     }
