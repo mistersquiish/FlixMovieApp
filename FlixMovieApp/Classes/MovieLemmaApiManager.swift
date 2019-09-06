@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class MovieLemmaApiManager {
     
-    static let baseUrl = "https://537c447d.ngrok.io/"
+    static let baseUrl = "https://movielemma.herokuapp.com/"
     static let currentUserId = Auth.auth().currentUser?.uid
     static let recommendationRoute = "recommendation/"
     var session: URLSession
