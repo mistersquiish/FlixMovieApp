@@ -10,27 +10,25 @@ import UIKit
 import AlamofireImage
 import FirebaseAuth
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    @IBOutlet weak var movieTableView: UITableView!
+class NowPlayingViewController: UITableViewController {
     
     var movies: [Movie] = []
-    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieTableView.dataSource = self
-        movieTableView.delegate = self
-        movieTableView.backgroundColor = ColorScheme.grayColor
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = ColorScheme.grayColor
         
         // refresh control
+        
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        refreshControl!.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         // add refresh control to table view
-        movieTableView.insertSubview(refreshControl, at: 0)
+        tableView.insertSubview(refreshControl!, at: 0)
         
         // add signout
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "sign out", style: .plain, target: self, action: #selector(signOut))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .plain, target: self, action: #selector(signOut))
         
         fetchMovies()
     }
@@ -39,11 +37,11 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         cell.movie = movies[indexPath.row]
         return cell
@@ -79,16 +77,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
             } else if let movies = movies {
                 self.movies = movies
                 // Reload the tableView now that there is new data
-                self.movieTableView.reloadData()
+                self.tableView.reloadData()
                 // Tell the refreshControl to stop spinning
-                self.refreshControl.endRefreshing()
+                self.refreshControl!.endRefreshing()
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
-        if let indexPath = movieTableView.indexPath(for: cell) {
+        if let indexPath = tableView.indexPath(for: cell) {
             let movie = movies[indexPath.row]
             let destinationViewController = segue.destination as! DetailViewController
             destinationViewController.movie = movie

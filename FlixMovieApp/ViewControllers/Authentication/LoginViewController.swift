@@ -110,7 +110,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
             // Not found, so remove keyboard.
             passwordTextField.resignFirstResponder()
             // perform login button function
-            
+            loginButton(self)
         }
         // Do not add a line break
         return false
