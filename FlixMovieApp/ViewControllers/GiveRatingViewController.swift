@@ -13,20 +13,38 @@ class GiveRatingViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var submitButtonOutlet: UIButton!
     @IBOutlet weak var cancelButtonOutlet: UIButton!
+    @IBOutlet weak var starOutlet1: UIButton!
+    @IBOutlet weak var starOutlet2: UIButton!
+    @IBOutlet weak var starOutlet3: UIButton!
+    @IBOutlet weak var starOutlet4: UIButton!
+    @IBOutlet weak var starOutlet5: UIButton!
     
     var db: Firestore!
     var currentUser: User!
     var movie: Movie!
     var currenUserRating: Double!
+    var rating: Int!
+    var stars: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // UI
         titleLabel.text = movie.title
+        titleLabel.textColor = ColorScheme.goldColor
+        cancelButtonOutlet = ColorScheme.goldColor
         imageView.af_setImage(withURL: movie.posterUrl!)
+        view.backgroundColor = ColorScheme.grayColor2
+        submitButtonOutlet.layer.masksToBounds = false
+        submitButtonOutlet.layer.cornerRadius = 12
+        submitButtonOutlet.clipsToBounds = true
+        submitButtonOutlet.backgroundColor = ColorScheme.goldColor
+        submitButtonOutlet.setTitleColor( UIColor.white, for: .normal)
+        
+        stars = [starOutlet1, starOutlet2, starOutlet3, starOutlet4, starOutlet5]
+        
         currentUser = Auth.auth().currentUser
         db = Firestore.firestore()
         
@@ -34,11 +52,19 @@ class GiveRatingViewController: UIViewController {
     }
     
     @IBAction func ratingsButton(_ sender: UIButton) {
-        ratingLabel.text = String(describing: sender.tag)
+        for i in 0..<sender.tag {
+            stars[i].setImage(UIImage(named: "star_filled"), for: .normal)
+        }
+        
+        for i in sender.tag..<5 {
+            stars[i].setImage(UIImage(named: "star"), for: .normal)
+        }
+        
+        rating = sender.tag
     }
 
     @IBAction func submitButton(_ sender: Any) {
-        if (ratingLabel.text != "0") {
+        if (rating != nil || rating != 0) {
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd"
             var posterUrl = movie.posterUrl?.absoluteString
@@ -61,7 +87,7 @@ class GiveRatingViewController: UIViewController {
                     "vote_average": movie.voteAverage!,
                     "vote_count": movie.voteCount!
                 ],
-                "rating": Int(ratingLabel.text!)!
+                "rating": rating
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -88,7 +114,7 @@ class GiveRatingViewController: UIViewController {
                             let movie = Movie(dictionary: movieData as! [String : Any])
                             if movie.movieId == self.movie.movieId {
                                 self.currenUserRating = document.data()["rating"] as? Double
-                                self.ratingLabel.text = String(Int(self.currenUserRating))
+                                self.ratingsButton(self.stars[Int(self.currenUserRating)])
                             }
                         }
                         

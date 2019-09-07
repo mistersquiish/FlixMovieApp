@@ -13,7 +13,7 @@ class InitialReviewPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = ColorScheme.grayColor2
     }
     
 

@@ -16,28 +16,50 @@ protocol didRate {
 class InitialReviewDataViewController: UIViewController {
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var starOutlet1: UIButton!
+    @IBOutlet weak var starOutlet2: UIButton!
+    @IBOutlet weak var starOutlet3: UIButton!
+    @IBOutlet weak var starOutlet4: UIButton!
+    @IBOutlet weak var starOutlet5: UIButton!
 
+    
     var didRateDelegate: didRate?
     var displayText: String!
     var imageURL: URL!
     var dateText: String!
     var index: Int!
-    var ratingText: String!
+    var stars: [UIButton]!
+    var rating: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieLabel.text = displayText + " (\(dateText!))"
-        imageView.af_setImage(withURL: imageURL)
-        ratingLabel.text = ratingText!
         
-        // Do any additional setup after loading the view.
+        // UI
+        movieLabel.text = displayText + " (\(dateText!))"
+        movieLabel.textColor = ColorScheme.goldColor
+        imageView.af_setImage(withURL: imageURL)
+        view.backgroundColor = ColorScheme.grayColor2
+        
+        stars = [starOutlet1, starOutlet2, starOutlet3, starOutlet4, starOutlet5]
+        
+        // change rating to whatever the user put previously
+        if rating != nil && rating != 0 {
+            ratingsButton(stars[rating - 1])
+
+        }
     }
     
     @IBAction func ratingsButton(_ sender: UIButton) {
-        ratingLabel.text = String(describing: sender.tag)
+        for i in 0..<sender.tag {
+            stars[i].setImage(UIImage(named: "star_filled"), for: .normal)
+        }
+        
+        for i in sender.tag..<5 {
+            stars[i].setImage(UIImage(named: "star"), for: .normal)
+        }
+        
         didRateDelegate?.didRate(index: index, rating: sender.tag)
     }
     
-
+    
 }

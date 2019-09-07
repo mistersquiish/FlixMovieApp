@@ -47,6 +47,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         signupButtonOutlet.backgroundColor = ColorScheme.grayColor
         signupButtonOutlet.setTitleColor( ColorScheme.goldColor, for: .normal)
         view.backgroundColor = ColorScheme.grayColor2
+        signinButtonOutlet.tintColor = ColorScheme.goldColor
+
         
         // add oberserver methods to allow keyboard to dismiss
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)

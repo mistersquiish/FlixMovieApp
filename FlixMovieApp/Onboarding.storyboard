@@ -268,49 +268,42 @@
                                 <rect key="frame" x="87" y="140" width="240" height="259"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5j-Fu-b5N">
-                                <rect key="frame" x="38" y="407" width="339" height="47"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XR-el-rN9">
+                                <rect key="frame" x="61" y="424" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XR-el-rN9">
-                                <rect key="frame" x="52" y="478" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="1"/>
+                                <state key="normal" title="1" image="star"/>
                                 <connections>
                                     <action selector="ratingsButton:" destination="7ob-Ga-HcX" eventType="touchUpInside" id="moR-kM-XLo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvh-jh-RFz">
-                                <rect key="frame" x="114" y="478" width="30" height="30"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvh-jh-RFz">
+                                <rect key="frame" x="122" y="424" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="2"/>
+                                <state key="normal" title="2" image="star"/>
                                 <connections>
                                     <action selector="ratingsButton:" destination="7ob-Ga-HcX" eventType="touchUpInside" id="bQa-Ig-0eC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-dK-FSp">
-                                <rect key="frame" x="177" y="477" width="30" height="30"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-dK-FSp">
+                                <rect key="frame" x="185" y="423" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="3"/>
+                                <state key="normal" title="3" image="star"/>
                                 <connections>
                                     <action selector="ratingsButton:" destination="7ob-Ga-HcX" eventType="touchUpInside" id="J04-pd-TCY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-pF-l79">
-                                <rect key="frame" x="238" y="477" width="30" height="30"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-pF-l79">
+                                <rect key="frame" x="245" y="423" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="4"/>
+                                <state key="normal" title="4" image="star"/>
                                 <connections>
                                     <action selector="ratingsButton:" destination="7ob-Ga-HcX" eventType="touchUpInside" id="DQ9-8m-HVe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZb-m3-AIP">
-                                <rect key="frame" x="332" y="476" width="30" height="30"/>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZb-m3-AIP">
+                                <rect key="frame" x="303" y="422" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="5"/>
+                                <state key="normal" title="5" image="star"/>
                                 <connections>
                                     <action selector="ratingsButton:" destination="7ob-Ga-HcX" eventType="touchUpInside" id="Fp5-qV-aUX"/>
                                 </connections>
@@ -322,7 +315,11 @@
                     <connections>
                         <outlet property="imageView" destination="sDd-eC-5Ut" id="Iyn-aB-jHm"/>
                         <outlet property="movieLabel" destination="WOP-Ik-BFw" id="FWa-aD-JeO"/>
-                        <outlet property="ratingLabel" destination="k5j-Fu-b5N" id="qow-rY-T3y"/>
+                        <outlet property="starOutlet1" destination="2XR-el-rN9" id="L3q-Qt-bJN"/>
+                        <outlet property="starOutlet2" destination="Uvh-jh-RFz" id="cSc-Ji-YUk"/>
+                        <outlet property="starOutlet3" destination="M6K-dK-FSp" id="aN7-76-PDu"/>
+                        <outlet property="starOutlet4" destination="B2U-pF-l79" id="vFp-CR-2Yt"/>
+                        <outlet property="starOutlet5" destination="vZb-m3-AIP" id="DcC-tl-G8Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kW-Ou-fB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -388,8 +385,9 @@
     </scenes>
     <resources>
         <image name="launch_image_gold" width="138" height="139"/>
+        <image name="star" width="426" height="408"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eFQ-Ey-3hh"/>
+        <segue reference="9IO-8x-i0l"/>
     </inferredMetricsTieBreakers>
 </document>

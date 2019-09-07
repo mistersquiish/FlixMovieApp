@@ -231,53 +231,6 @@
                                 <rect key="frame" x="67" y="174" width="240" height="259"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohg-T2-nGz">
-                                <rect key="frame" x="18" y="441" width="339" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9H-1q-Z9y">
-                                <rect key="frame" x="32" y="512" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="1"/>
-                                <connections>
-                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="BbW-nR-ScJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAT-N3-osi">
-                                <rect key="frame" x="94" y="512" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="2"/>
-                                <connections>
-                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="iF4-G6-qym"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hW4-X4-Izd">
-                                <rect key="frame" x="157" y="511" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="3"/>
-                                <connections>
-                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="L8h-xi-2mL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkK-E5-h83">
-                                <rect key="frame" x="218" y="511" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="4"/>
-                                <connections>
-                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="amq-q4-voF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwy-5E-F7N">
-                                <rect key="frame" x="312" y="510" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="5"/>
-                                <connections>
-                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="lQ0-qp-5GR"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzz-2i-zzg">
                                 <rect key="frame" x="156" y="603" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -294,6 +247,46 @@
                                     <action selector="cancelButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="FgW-BW-JnN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMg-yB-s47">
+                                <rect key="frame" x="41" y="464" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="1" image="star"/>
+                                <connections>
+                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="Pta-tW-i33"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Eu-dOy">
+                                <rect key="frame" x="102" y="464" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="2" image="star"/>
+                                <connections>
+                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="M1i-rl-bq8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcg-DW-ycA">
+                                <rect key="frame" x="165" y="463" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="3" image="star"/>
+                                <connections>
+                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="i1O-8P-eKo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDt-sj-t8c">
+                                <rect key="frame" x="225" y="463" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="4" image="star"/>
+                                <connections>
+                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="3ey-pq-EzV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0d2-Fa-K45">
+                                <rect key="frame" x="283" y="462" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="5" image="star"/>
+                                <connections>
+                                    <action selector="ratingsButton:" destination="xez-ig-1Fg" eventType="touchUpInside" id="THd-I7-ZiI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DEB-kK-8Wl"/>
@@ -301,7 +294,11 @@
                     <connections>
                         <outlet property="cancelButtonOutlet" destination="cWt-EX-ECU" id="6aZ-t9-9KH"/>
                         <outlet property="imageView" destination="VX2-wE-gHC" id="Qtu-bL-iy3"/>
-                        <outlet property="ratingLabel" destination="Ohg-T2-nGz" id="jP7-FD-okd"/>
+                        <outlet property="starOutlet1" destination="oMg-yB-s47" id="HMA-AX-UvX"/>
+                        <outlet property="starOutlet2" destination="Es1-Eu-dOy" id="Ft1-9S-Y6i"/>
+                        <outlet property="starOutlet3" destination="Rcg-DW-ycA" id="fJK-gU-yM3"/>
+                        <outlet property="starOutlet4" destination="aDt-sj-t8c" id="0g2-Pd-Bdi"/>
+                        <outlet property="starOutlet5" destination="0d2-Fa-K45" id="v40-vP-Y53"/>
                         <outlet property="submitButtonOutlet" destination="Yzz-2i-zzg" id="yM9-gq-gLt"/>
                         <outlet property="titleLabel" destination="zvP-V5-8Z5" id="Kh7-mE-JqQ"/>
                     </connections>
@@ -310,7 +307,7 @@
             </objects>
             <point key="canvasLocation" x="3977" y="-40"/>
         </scene>
-        <!--Now Playing View Controller-->
+        <!--Now Playing-->
         <scene sceneID="qYA-FV-NmZ">
             <objects>
                 <tableViewController id="gGl-uA-Vcs" customClass="NowPlayingViewController" customModule="FlixMovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -400,7 +397,7 @@
                             <outlet property="delegate" destination="gGl-uA-Vcs" id="olC-A4-dkR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tN4-4k-dqU"/>
+                    <navigationItem key="navigationItem" title="Now Playing" id="tN4-4k-dqU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBp-1c-Byk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -756,6 +753,7 @@
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="projector_tabbar_item" width="21" height="25"/>
+        <image name="star" width="426" height="408"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
         <image name="user_male" width="30" height="30"/>
     </resources>

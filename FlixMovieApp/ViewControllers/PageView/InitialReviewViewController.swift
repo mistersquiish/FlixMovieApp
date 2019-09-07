@@ -31,7 +31,13 @@ class InitialReviewViewController: UIViewController, didRate {
         
         // UI
         continueButtonOutlet.alpha = 0
-        
+        contentView.backgroundColor = ColorScheme.grayColor2
+        view.backgroundColor = ColorScheme.grayColor2
+        continueButtonOutlet.layer.masksToBounds = false
+        continueButtonOutlet.layer.cornerRadius = 12
+        continueButtonOutlet.clipsToBounds = true
+        continueButtonOutlet.backgroundColor = ColorScheme.goldColor
+        continueButtonOutlet.setTitleColor( UIColor.white, for: .normal)
     }
     
     @IBAction func continueButton(_ sender: Any) {
@@ -132,7 +138,7 @@ class InitialReviewViewController: UIViewController, didRate {
         let df = DateFormatter()
         df.dateFormat = "yyyy"
         dataViewController.dateText = df.string(from: movies[index].releaseDate!)
-        dataViewController.ratingText = String(describing: reviews[index].rating!)
+        dataViewController.rating = reviews[index].rating
         dataViewController.didRateDelegate = self
         
         return dataViewController
@@ -192,6 +198,7 @@ extension InitialReviewViewController: UIPageViewControllerDelegate, UIPageViewC
         }
         
         currentIndex -= 1
+        
         return detailViewControllerAt(index: currentIndex)
     }
     
@@ -202,16 +209,14 @@ extension InitialReviewViewController: UIPageViewControllerDelegate, UIPageViewC
         }
         // update ratings
         //reviews[currentViewControllerIndex].rating = Int((dataViewController?.ratingLabel.text)!)
-        
-        currentViewControllerIndex = currentIndex
-        
+                
         if currentIndex == movies.count {
             return nil
         }
         
         currentIndex += 1
         currentViewControllerIndex = currentIndex
-        
+
         return detailViewControllerAt(index: currentIndex)
     }
 }
