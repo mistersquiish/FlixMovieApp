@@ -34,7 +34,7 @@ class GiveRatingViewController: UIViewController {
         // UI
         titleLabel.text = movie.title
         titleLabel.textColor = ColorScheme.goldColor
-        cancelButtonOutlet = ColorScheme.goldColor
+        cancelButtonOutlet.tintColor = ColorScheme.goldColor
         imageView.af_setImage(withURL: movie.posterUrl!)
         view.backgroundColor = ColorScheme.grayColor2
         submitButtonOutlet.layer.masksToBounds = false
